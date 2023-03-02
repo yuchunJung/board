@@ -1,0 +1,29 @@
+table {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 200px;
+    border: 3px solid skyblue;
+    border-collapse: collapse;
+}
+
+th, td {
+    border:1px solid #d9d7d7;
+    padding: 10px;
+}
+
+th {
+    font-weight: bold;
+    color: white;
+    background: skyblue;
+    font-size: 18px;
+}
+
+.dc {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.tableDc {
+    width: 100px;
+    height: 200px;
+}

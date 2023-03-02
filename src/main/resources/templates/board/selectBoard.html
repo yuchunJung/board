@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>selectBoard</title>
+    <link th:href="@{/css/table_css.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+
+<table>
+    <div>
+        <tr>
+            <td align="left">제목 : [[${board.boardTitle}]]</td>
+        </tr>
+        <tr>
+            <td align="left">내용 : [[${board.boardContent}]]</td>
+        </tr>
+        <tr>
+            <td align="left">작성자 : [[${board.boardWriter}]]</td>
+        </tr>
+    </div>
+</table>
+<br>
+<div align="center">
+    <a th:href="@{/boardPage/updateBoard/{id} (id=${board.boardNum})}">
+        <button type="button" class="btn btn-info">수정하기</button></a>
+    <a th:href="@{/boardPage/deleteBoard/{id} (id=${board.boardNum})}">
+        <button type="button" class="btn btn-info">삭제하기</button></a>
+    <a th:href="@{/boardPage/boardList}">
+        <button type="button" class="btn btn-info">목록보기</button></a>
+</div>
+</body>
+</html>

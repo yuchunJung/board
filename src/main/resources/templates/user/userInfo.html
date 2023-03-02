@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>userList</title>
+  <link th:href="@{/css/table_css.css}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+
+<table>
+    <tr>
+        <th width="130">유저 번호</th>
+        <th width="150">유저 아이디</th>
+        <th width="150">이름</th>
+        <th width="200">이메일</th>
+    </tr>
+
+    <tr th:each="user : ${userList}">
+        <td width="130">[[${user.userNum}]]</td>
+        <td width="150">[[${user.userId}]]</td>
+        <td width="150">[[${user.userName}]]</td>
+        <td width="200">[[${user.userEmail}]]</td>
+    </tr>
+</table>
+<br>
+<div align="center">
+    <a th:href="@{/join}">
+        <button type="button" class="btn btn-info">회원가입</button>
+    </a>
+</div>
+</body>
+</html>

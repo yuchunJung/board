@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link th:href="@{/css/table_css.css}" rel="stylesheet">
+    <import url="/include/header.html"></import>
+</head>
+<body>
+<span th:text="${session.userName}"></span>
+
+
+<div class="dc">
+    <a th:href="@{/boardPage/boardList}">
+        <img th:src="@{/img/welcome.jpg}"></a>
+</div>
+</body>
+</html>

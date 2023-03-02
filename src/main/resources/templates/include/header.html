@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div align="right">
+  <a th:href="/join">회원가입</a>
+  <a th:href="/login">로그인</a>
+  <a th:href="/modify/{userNum} (userNum=${user.userNum})}">정보수정</a>
+  <a th:href="/deleteUser/{userNum} (userNum=${user.userNum})}">회원탈퇴</a>
+</div>
+
+</body>
+</html>

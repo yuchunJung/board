@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.project.board.mapper.BoardMapper">
+
+    <select id="selectBoard" resultType="com.project.board.dto.BoardDto">
+        SELECT board_num, board_title, board_content, board_writer, board_date
+        FROM board
+        <if test="keyword != null">
+            WHERE board_title
+            LIKE
+            concat('%',#{keyword},'%')
+        </if>
+        ORDER BY board_num
+        DESC
+        LIMIT #{skip}, #{amount}
+    </select>
+
+    <select id="getTotal" resultType="int">
+        SELECT count(*)
+        FROM board
+        <if test="keyword != null">
+            WHERE board_title
+            LIKE
+            concat('%',#{keyword},'%')
+        </if>
+    </select>
+
+    <select id="boardNum" resultType="com.project.board.dto.BoardDto">
+        SELECT *
+        FROM board
+        WHERE board_num = ${id}
+    </select>
+
+    <insert id="insertBoard" parameterType="com.project.board.dto.BoardDto">
+        INSERT INTO board (board_title, board_content, board_writer)
+        VALUES
+        (#{boardTitle}, #{boardContent}, #{boardWriter})
+    </insert>
+
+    <update id="updateBoard" parameterType="com.project.board.dto.BoardDto">
+        UPDATE board
+        SET board_title = #{boardTitle}
+        , board_content = #{boardContent}
+        , board_writer = #{boardWriter}
+        WHERE board_num = #{boardNum}
+    </update>
+
+    <delete id="deleteBoard">
+        DELETE FROM board
+        WHERE board_num = #{boardNum}
+    </delete>
+
+</mapper>
